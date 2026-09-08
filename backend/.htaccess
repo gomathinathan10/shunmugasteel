@@ -1,0 +1,19 @@
+RewriteEngine On
+
+# Production environment variables — used by config/config.php
+SetEnv BASE_URL https://noww.in/demo.noww.in/shunmuga/backend
+SetEnv FRONTEND_URL https://shunmugasteel.com
+
+# Handle OPTIONS preflight at Apache level (before PHP) — prevents CORS failures on cached preflight
+RewriteCond %{REQUEST_METHOD} OPTIONS
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.php [QSA,L]
+
+# Increase upload limits for video uploads
+php_value upload_max_filesize 200M
+php_value post_max_size 210M
+php_value max_execution_time 300
+php_value max_input_time 300

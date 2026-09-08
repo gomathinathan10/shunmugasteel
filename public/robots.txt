@@ -1,0 +1,13 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Disallow private user accounts and dashboard
+Disallow: /my-quotes
+Disallow: /my-quotes/*
+Disallow: /profile
+Disallow: /reset-password
+Disallow: /verify-email
+
+# Sitemap
+Sitemap: https://www.shunmugasteel.com/sitemap.xml
